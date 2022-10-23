@@ -1,0 +1,18 @@
+#body{
+    background-color: rgba(63, 72, 84, 0);
+    color: burlywood;
+    padding-top: 70px;
+    text-align: center;
+}
+
+#hotelSandroPhoto{
+    width: 600px;
+    height: 450px;
+}
+
+#formular{
+    background-color: #195181;
+    border-radius: 5px;
+    border-color: burlywood;
+    border-style: double;
+}
