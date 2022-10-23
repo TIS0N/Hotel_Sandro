@@ -19,7 +19,7 @@ session_start()
     include "../inc/navigation.php";
 ?>
 
-<?php ?>
+<h1>Welcome to the world of the remembered</h1>
 
 
 
