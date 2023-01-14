@@ -1,0 +1,21 @@
+body{
+    /*background-color: rgb(63, 72, 84);*/
+    background-color:rgb(63, 72, 84);
+    color: white;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    text-align: center;
+    /*font-family: cursive;*/
+}
+
+#hotelSandroPhoto{
+    width: 600px;
+    height: 450px;
+}
+
+#formular{
+    background-color: #195181;
+    border-radius: 10px;
+    border-color: rgb(255, 255, 255);
+    border-style: double;
+}
