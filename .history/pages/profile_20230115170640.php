@@ -28,18 +28,22 @@ session_start();
 
         if($_SESSION["user"]["isAdmin"]){
             echo "Welcome " . $_SESSION['user']["firstName"] ."!";
-       
-            include "../inc/uploadForm.php";
-            ?>
-            <a href="../inc/usersList.php">List of users</a>
-            <?php
 
-            //include "../inc/usersList.php";
-        }
-        else{
+            $sql = "SELECT * FROM users";
+            $result = $db_obj->query($sql);
+
+            while($row = $result->fetch_array()){
+                echo "Username: " . $row["id"] . "<br>";
+                echo "Email: " . $row["usersEmail"] . "<br>";
+                echo "First Name: " . $row["firstName"] . "<br>";
+                echo "Last Name: " . $row["lastName"] . "<br>";
+                echo "<br>";
+            }
+
+            include "../inc/uploadForm.php";
+        }else{
             echo "Welcome " . $_SESSION["user"]["usersUid"] . "!";
         }
-
     ?>
 
     <li><a href="../pages/changePassword.php">Change password</a></li>

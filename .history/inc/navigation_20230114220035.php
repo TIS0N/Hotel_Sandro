@@ -6,7 +6,7 @@
         $includePath = "..";
     }
 
-    include_once "$includePath/config/dbaccess.php";
+    include_once "../config/dbaccess.php";
 ?>
 
 <div id="navBar">

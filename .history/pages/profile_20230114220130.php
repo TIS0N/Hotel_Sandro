@@ -10,29 +10,33 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../res/css/stylesheet.css">
-    <title>Document</title>
+    <title>Welcome</title>
 </head>
-<body>
-    
+<body id="body">
+
 <?php
 include "../inc/navigation.php";
+include "../inc/functions.php";
+?>
+    
+<?php
+
+    if (!isLoggedIn()) {
+        $_SESSION['msg'] = "You must log in first";
+        header("location: ../pages/login.php?error=unauthorisedAccess");
+    }
+
+    if($_SESSION["user"]["isAdmin"]){
+        echo "Welcome " . $_SESSION['user']["firstName"] ."!";
+    }else{
+        echo "Welcome normal human" . $_SESSION["user"]["usersUid"];
+    }
+
+    include "../inc/uploadForm.php";
 ?>
 
-
-<h1>
-    What's new:
-</h1>
-
-
-
-
-
-
-
-
-
 <?php
-include "../pages/footer.php";
+include "footer.php";
 ?>
 
 </body>

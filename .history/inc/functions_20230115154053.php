@@ -52,24 +52,6 @@ function newPasswordMatch($newPwd, $newPwd2) {
     return $result;
 }
 
-function newAndOldPasswordMatch($pwd, $newPwd, $newPwd2) {
-  
-    if (($pwd !== $newPwd) || ($pwd !== $newPwd2)) {
-      $result = false; 
-    }else {
-      $result = true;
-    }
-    return $result;
-}
-/*
-function oldPasswordMatch($origPwd , $pwdInput){
-    if()
-}
-
-function changePassword($conn, ){
-
-}
-*/
 function userExists($conn, $usersUid, $email){
     $sql = "SELECT * FROM users WHERE usersUid = ? OR usersEmail = ?;";
     $stmt = mysqli_stmt_init($conn);

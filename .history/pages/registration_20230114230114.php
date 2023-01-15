@@ -191,7 +191,7 @@ ________________________________________________________________________________
         </div>
 -->
     <section class="signup-form">
-            <!--<h2>Sign Up</h2>-->
+            <h2>Sign Up</h2>
             <form action="../inc/signup.inc.php" method="post">
                 <input type="text" name="fname" placeholder="First Name..."><br><br>
                 <input type="text" name="lname" placeholder="Last Name..."><br><br>
@@ -199,7 +199,6 @@ ________________________________________________________________________________
                 <input type="email" name="email" placeholder="Email..."><br><br>
                 <input type="password" name="pwd" placeholder="Password..."><br><br>
                 <input type="password" name="password2" placeholder="Repeat Password..."><br><br>
-                <button type="reset" name="reset">Reset</button>
                 <button type="submit" name="submit">Sign Up</button>
             </form>
 
@@ -221,7 +220,7 @@ ________________________________________________________________________________
                 }
             ?>
 
-            <br><p>Already have an account? Click here to <a href="login.php">login</a>.</p>
+            <br><p>Already have an account? Click here to<a href="login.php">Login</a>.</p>
 
     </section>
 

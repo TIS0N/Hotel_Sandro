@@ -27,7 +27,7 @@ session_start();
         }
 
         if($_SESSION["user"]["isAdmin"]){
-            echo "Welcome " . $_SESSION['user']["firstName"] ."!";
+            //echo "Welcome " . $_SESSION['user']["firstName"] ."!";
        
             include "../inc/uploadForm.php";
             ?>
@@ -36,10 +36,10 @@ session_start();
 
             //include "../inc/usersList.php";
         }
-        else{
+        /*else{
             echo "Welcome " . $_SESSION["user"]["usersUid"] . "!";
-        }
-
+        }*/
+        echo "Welcome " . $_SESSION['user']["firstName"] ."!";
     ?>
 
     <li><a href="../pages/changePassword.php">Change password</a></li>

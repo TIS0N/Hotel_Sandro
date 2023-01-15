@@ -1,7 +1,7 @@
 <?php
 session_start();
+include_once "./config/dbaccess.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +10,39 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="res/css/stylesheet.css">
-    <title>Hotel Sandro Wien</title>
+    <link rel="stylesheet" href="../res/css/stylesheet.css">
+    <title>Hotel Sandro Wien - Help</title>
 </head>
+<body id="body">
 
-<body id="body"> <!--style="background-color: rgb(63, 72, 84); color: burlywood">-->
-    <?php
-    include "./inc/navigation.php";
-    ?>
+<?php
+include "../inc/navigation.php";
+?>
 
-    <div class="container text-start">
-        <div class="row align-items-starts">
+    <div class="container text-center">
+        <div class="row align-items-start">
             <div class="col">
-                <h1>Hotel Sandro Wien</h1>
-                <h2>Home</h2>
-                <img src="./res/img/hotel.jpg" id="hotelSandroPhoto" alt="Photo of Hotel Sandro Wien">
+            One of three columns
             </div>
-            <div class="col" id="welcomeText" style="padding-top: 200px;">
-                
-                Welcome to Hotel Sandro Wien
-                We offer the best services in whole Vienna so come and spend a few nights with us
+            <div class="col">
+            One of three columns
             </div>
         </div>
     </div>
-    
+
+    <h1>Hotel Sandro Wien</h1>
+    <h2>Help Q&A</h2>
+    <h3>Most asked questions</h3>
+    <p>How can I create an account?</p><br>
+    <p>How to log in?</p><br>
+    <p>Why Hotel Sandro</p><br><br><br><br>
+    <h1>To find out more, contact us here: email@gmail.com</h1>
+
+
 <?php
-include "./pages/footer.php";
+include "footer.php";
 ?>
+
 
 </body>
 </html>

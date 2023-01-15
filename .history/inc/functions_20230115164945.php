@@ -61,15 +61,11 @@ function newAndOldPasswordMatch($pwd, $newPwd, $newPwd2) {
     }
     return $result;
 }
-/*
-function oldPasswordMatch($origPwd , $pwdInput){
-    if()
-}
 
 function changePassword($conn, ){
 
 }
-*/
+
 function userExists($conn, $usersUid, $email){
     $sql = "SELECT * FROM users WHERE usersUid = ? OR usersEmail = ?;";
     $stmt = mysqli_stmt_init($conn);

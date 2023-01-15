@@ -191,7 +191,7 @@ ________________________________________________________________________________
         </div>
 -->
     <section class="signup-form">
-            <!--<h2>Sign Up</h2>-->
+            <h2>Sign Up</h2>
             <form action="../inc/signup.inc.php" method="post">
                 <input type="text" name="fname" placeholder="First Name..."><br><br>
                 <input type="text" name="lname" placeholder="Last Name..."><br><br>

@@ -30,16 +30,12 @@ session_start();
             echo "Welcome " . $_SESSION['user']["firstName"] ."!";
        
             include "../inc/uploadForm.php";
-            ?>
-            <a href="../inc/usersList.php">List of users</a>
-            <?php
-
-            //include "../inc/usersList.php";
+            include "../inc/usersList.php";
         }
-        else{
+        /*else{
             echo "Welcome " . $_SESSION["user"]["usersUid"] . "!";
-        }
-
+        }*/
+        echo "Welcome " . $_SESSION['user']["firstName"] ."!";
     ?>
 
     <li><a href="../pages/changePassword.php">Change password</a></li>

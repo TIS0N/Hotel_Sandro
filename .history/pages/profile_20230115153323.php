@@ -28,18 +28,11 @@ session_start();
 
         if($_SESSION["user"]["isAdmin"]){
             echo "Welcome " . $_SESSION['user']["firstName"] ."!";
-       
-            include "../inc/uploadForm.php";
-            ?>
-            <a href="../inc/usersList.php">List of users</a>
-            <?php
 
-            //include "../inc/usersList.php";
-        }
-        else{
+            include "../inc/uploadForm.php";
+        }else{
             echo "Welcome " . $_SESSION["user"]["usersUid"] . "!";
         }
-
     ?>
 
     <li><a href="../pages/changePassword.php">Change password</a></li>

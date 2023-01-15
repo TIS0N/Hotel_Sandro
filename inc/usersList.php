@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,27 +10,38 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    
+
 <?php
-include "../inc/navigation.php";
+    include "./navigation.php";
 ?>
 
 
-<h1>
-    What's new:
-</h1>
 
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+        </tr>
+        
+        <?php
+        $sql = "SELECT * FROM users";
+        $result = $conn->query($sql);
 
-
-
-
-
-
-
-
-<?php
-include "../pages/footer.php";
-?>
-
+        while($row = $result->fetch_array()){?>
+            <tr>
+                <td><?php echo $row["firstName"];?></td>
+                <td><?php echo  $row["lastName"];?></td>
+                <td><?php echo  $row["usersUid"];?></td>
+                <td><?php echo  $row["usersEmail"];?></td>
+            </tr>
+        <?php
+        }
+        ?>
+        
+    </table>
 </body>
 </html>
+
+

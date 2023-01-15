@@ -10,18 +10,6 @@ function empty_input_reg($usersUid, $firstName, $lastName, $email, $pwd, $passwo
     return $result;
 }
 
-function emptyInputChangePwd($pwd, $newPwd, $newPwd2) {
-   
-    if(empty($pwd)  || empty($newPwd) || empty($newPwd2)){
-        $result = true;
-    }
-    else {
-        $result = false;
-    }
-
-    return $result;
-}
-
 function invalidEmail($email) {
     
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -52,24 +40,6 @@ function newPasswordMatch($newPwd, $newPwd2) {
     return $result;
 }
 
-function newAndOldPasswordMatch($pwd, $newPwd, $newPwd2) {
-  
-    if (($pwd !== $newPwd) || ($pwd !== $newPwd2)) {
-      $result = false; 
-    }else {
-      $result = true;
-    }
-    return $result;
-}
-/*
-function oldPasswordMatch($origPwd , $pwdInput){
-    if()
-}
-
-function changePassword($conn, ){
-
-}
-*/
 function userExists($conn, $usersUid, $email){
     $sql = "SELECT * FROM users WHERE usersUid = ? OR usersEmail = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -125,7 +95,7 @@ function userExists($conn, $usersUid, $email){
     }
 
     return $result;
-    }
+}
 
 function loginUser($conn, $usersUid, $pwd){
   $usersUidExists = userExists($conn, $usersUid, $usersUid);

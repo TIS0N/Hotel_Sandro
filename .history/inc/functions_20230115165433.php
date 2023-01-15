@@ -62,10 +62,6 @@ function newAndOldPasswordMatch($pwd, $newPwd, $newPwd2) {
     return $result;
 }
 /*
-function oldPasswordMatch($origPwd , $pwdInput){
-    if()
-}
-
 function changePassword($conn, ){
 
 }
