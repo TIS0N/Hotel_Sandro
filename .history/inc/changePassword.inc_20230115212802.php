@@ -26,12 +26,10 @@ if(isset($_POST["submit"])){
     }
 
     if(!oldPasswordMatch($conn, $id, $origPwd)) {
-        header("location: ../pages/changePassword.php?error=oldpassworddoesnotmatch");
-        exit(); 
+
     }
 
-    changePassword($conn, $newPwd, $id);
-    
+    echo "Everything is fine!";
 }
 
 ?>

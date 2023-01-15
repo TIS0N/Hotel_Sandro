@@ -104,7 +104,7 @@ function changePassword($conn, $newPwd, $id){
 
     $hashedPwd = password_hash($newPwd, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ss", $hashedPwd, $id);
+    mysqli_stmt_bind_param($stmt, "ss", $newPwd, $id);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -138,8 +138,8 @@ function userExists($conn, $usersUid, $email){
     mysqli_stmt_close($stmt);
 }
 //creating users
-  function create_user($conn, $usersUid, $email, $firstName, $lastName, $gender, $pwd){
-    $sql = "INSERT INTO users(usersUid, usersEmail, firstName, lastName, gender, usersPwd) VALUES (?,?,?,?,?,?);";
+  function create_user($conn, $usersUid, $email, $firstName, $lastName, $pwd){
+    $sql = "INSERT INTO users(usersUid, usersEmail, firstName, lastName, usersPwd) VALUES (?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -149,7 +149,7 @@ function userExists($conn, $usersUid, $email){
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssssss", $usersUid, $email, $firstName, $lastName, $gender, $hashedPwd);
+    mysqli_stmt_bind_param($stmt, "sssss", $usersUid, $email, $firstName, $lastName, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 

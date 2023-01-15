@@ -20,7 +20,7 @@ session_start();
         <h1>Change password</h1><br>
         <form role="form" action="../inc/changePassword.inc.php" method="post">
             <h5 class="text-center"></h5>
-            <input type="hidden" name="id" value="<?php echo $_SESSION['user']['id'] ?>">
+            <input type="hidden" class="form-control" name="id" placeholder="Old Password" value="<?php echo $_SESSION['user']['usersId'] ?>">
             <input type="password" class="form-control" name="pwd" placeholder="Old Password"></br>
             <input type="password" class="form-control" name="newPwd" placeholder="New Password"><br>
             <input type="password" class="form-control" name="newPwd2" placeholder="Confirm New Password"><br>

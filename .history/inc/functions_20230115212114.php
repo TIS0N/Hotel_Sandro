@@ -74,44 +74,27 @@ function oldPasswordMatch($conn, $id , $oldPwd){
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "s", $id);
+    mysqli_stmt_bind_param($stmt, "ss", $usersUid, $email);
     mysqli_stmt_execute($stmt);
 
     $resData = mysqli_stmt_get_result($stmt);
 
     $result = false;
     if($row  = mysqli_fetch_assoc($resData)){
-        if (password_verify($oldPwd,$row['usersPwd'])){
+        if ($row['usersPwd'] == $oldPwd){
             $result = true;
         }
     }
 
     mysqli_stmt_close($stmt);
 
-    return $result;
+    return $result
 }
 
 //Changing users old password
-function changePassword($conn, $newPwd, $id){
-    $sql = "UPDATE users SET usersPwd = ? WHERE id = ?";
-
-    $stmt = mysqli_stmt_init($conn);
-
-    if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../pages/registration.php?error=statementfailed");
-        exit();
-    }
-
-    $hashedPwd = password_hash($newPwd, PASSWORD_DEFAULT);
-
-    mysqli_stmt_bind_param($stmt, "ss", $hashedPwd, $id);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-
-    header("location: ../pages/profile.php");
-    exit();
+function changePassword($conn, $pwd, $newPwd, $email){
+    $sql = "UPDATE users SET usersPwd = $newPwd WHERE usersEmail = $email";
 }
-
 //to see if the user already exists
 function userExists($conn, $usersUid, $email){
     $sql = "SELECT * FROM users WHERE usersUid = ? OR usersEmail = ?;";
@@ -138,8 +121,8 @@ function userExists($conn, $usersUid, $email){
     mysqli_stmt_close($stmt);
 }
 //creating users
-  function create_user($conn, $usersUid, $email, $firstName, $lastName, $gender, $pwd){
-    $sql = "INSERT INTO users(usersUid, usersEmail, firstName, lastName, gender, usersPwd) VALUES (?,?,?,?,?,?);";
+  function create_user($conn, $usersUid, $email, $firstName, $lastName, $pwd){
+    $sql = "INSERT INTO users(usersUid, usersEmail, firstName, lastName, usersPwd) VALUES (?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -149,7 +132,7 @@ function userExists($conn, $usersUid, $email){
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssssss", $usersUid, $email, $firstName, $lastName, $gender, $hashedPwd);
+    mysqli_stmt_bind_param($stmt, "sssss", $usersUid, $email, $firstName, $lastName, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 

@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,20 +10,18 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <?php
-    include "../inc/navigation.php";
-    ?>
+    
+<?php
+include "../inc/navigation.php";
+?>
     <section class="login-form">
-        <h1>Change password</h1><br>
-        <form role="form" action="../inc/changePassword.inc.php" method="post">
+        <h1>Edit Profile</h1><br>
+        <form role="form" action="../inc/login.inc.php" method="post">
             <h5 class="text-center"></h5>
-            <input type="hidden" name="id" value="<?php echo $_SESSION['user']['id'] ?>">
-            <input type="password" class="form-control" name="pwd" placeholder="Old Password"></br>
-            <input type="password" class="form-control" name="newPwd" placeholder="New Password"><br>
-            <input type="password" class="form-control" name="newPwd2" placeholder="Confirm New Password"><br>
+            <input type="username" class="form-control" name="usersUid" placeholder="Username"></br>
+            <input type="email" class="form-control" name="usersEmail" placeholder="Email"></br>
             <button class="btn btn-lg btn-success btn-block" type="reset" name="reset">Reset</button>
-            <button class="btn btn-lg btn-success btn-block" type="submit" name="submit">Change</button>
-            <p>If you wish to return to the previous page, <a href="../pages/profile.php">click here</a>.</p>
+            <button class="btn btn-lg btn-success btn-block" type="submit" name="edit">Edit</button>
         </form>
 
         <?php
@@ -34,12 +29,20 @@ session_start();
                 if($_GET["error"] == "emptyinput"){
                     echo "<p>Fill in all fields</p>";
                 }
+                else if($_GET["error"] == "wronglogin"){
+                    echo "<p>Incorrect login information!</p>";
+                } 
             }
-            ?>
+        ?>
+
+        <br><p>Don't have an account yet? Click here to <a href="registration.php">register</a>.</p>
 
     </section>
 
-    
+<?php
+include "footer.php";
+?>
+
 
 </body>
 </html>

@@ -30,8 +30,7 @@ if(isset($_POST["submit"])){
         exit(); 
     }
 
-    changePassword($conn, $newPwd, $id);
-    
+    echo "Everything is fine!";
 }
 
 ?>

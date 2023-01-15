@@ -21,11 +21,11 @@ session_start();
 
     <div class="container text-start">
         <div class="row align-items-starts">
-            <div class="col-12 col-md-6">
+            <div class="col">
                 <h1>Hotel Sandro Wien</h1>
                 <img src="./res/img/hotel.jpg" id="hotelSandroPhoto" alt="Photo of Hotel Sandro Wien">
             </div>
-            <div class="col-12 col-md-6" id="welcomeText" style="padding-top: 200px;">
+            <div class="col" id="welcomeText" style="padding-top: 200px;">
                 
                 Welcome to Hotel Sandro Wien
                 We offer the best services in whole Vienna so come and spend a few nights with us
